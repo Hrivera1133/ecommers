@@ -9,8 +9,8 @@ export default function Home() {
           The Premium Collection
         </h1>
         <p className="text-xl text-zinc-600 max-w-2xl">
-          Discover our curated selection of high-end tech and lifestyle accessories, 
-          designed for quality and performance.
+          Discover our curated selection of high-end tech and lifestyle
+          accessories, designed for quality and performance.
         </p>
       </header>
 

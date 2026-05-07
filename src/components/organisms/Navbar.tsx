@@ -25,13 +25,19 @@ export const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Link href="/" className="text-xl font-black tracking-tighter text-black">
+              <Link
+                href="/"
+                className="text-xl font-black tracking-tighter text-black"
+              >
                 ECOMMERS.
               </Link>
             </div>
-            
+
             <div className="flex items-center space-x-6">
-              <Link href="/" className="text-sm font-medium text-zinc-600 hover:text-black transition-colors">
+              <Link
+                href="/"
+                className="text-sm font-medium text-zinc-600 hover:text-black transition-colors"
+              >
                 Catalog
               </Link>
               <Link href="/cart" className="relative group p-2">
@@ -47,8 +53,10 @@ export const Navbar: React.FC = () => {
 
               {mounted && user ? (
                 <div className="flex items-center space-x-4">
-                  <span className="text-sm font-semibold text-black">Hi, {user.name.split(' ')[0]}</span>
-                  <button 
+                  <span className="text-sm font-semibold text-black">
+                    Hi, {user.name.split(' ')[0]}
+                  </span>
+                  <button
                     onClick={logout}
                     className="text-xs font-bold text-zinc-400 hover:text-red-600 transition-colors uppercase tracking-widest"
                   >
@@ -56,9 +64,9 @@ export const Navbar: React.FC = () => {
                   </button>
                 </div>
               ) : (
-                <Button 
-                  variant="secondary" 
-                  size="sm" 
+                <Button
+                  variant="secondary"
+                  size="sm"
                   onClick={() => setIsAuthOpen(true)}
                 >
                   Sign In

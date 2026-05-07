@@ -14,12 +14,14 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center rounded-lg font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
-  
+  const baseStyles =
+    'inline-flex items-center justify-center rounded-lg font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+
   const variants = {
     primary: 'bg-black text-white hover:bg-zinc-800 focus:ring-black',
     secondary: 'bg-zinc-100 text-black hover:bg-zinc-200 focus:ring-zinc-200',
-    outline: 'border border-zinc-300 text-black hover:bg-zinc-50 focus:ring-zinc-300',
+    outline:
+      'border border-zinc-300 text-black hover:bg-zinc-50 focus:ring-zinc-300',
     ghost: 'text-black hover:bg-zinc-100 focus:ring-zinc-100',
   };
 

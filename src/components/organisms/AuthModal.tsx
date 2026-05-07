@@ -38,9 +38,9 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal 
-      isOpen={isOpen} 
-      onClose={onClose} 
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
       title={status === 'awaiting_2fa' ? 'Verify Identity' : 'Welcome Back'}
     >
       {status === 'awaiting_2fa' ? (
@@ -63,11 +63,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             />
           </div>
           {error && <p className="text-xs text-red-600 font-medium">{error}</p>}
-          <Button 
-            fullWidth 
-            type="submit" 
-            disabled={status === 'logging_in'}
-          >
+          <Button fullWidth type="submit" disabled={status === 'logging_in'}>
             {status === 'logging_in' ? 'Verifying...' : 'Verify & Sign In'}
           </Button>
         </form>
@@ -87,12 +83,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             />
           </div>
           {error && <p className="text-xs text-red-600 font-medium">{error}</p>}
-          <Button 
-            fullWidth 
-            type="submit" 
-            disabled={status === 'logging_in'}
-          >
-            {status === 'logging_in' ? 'Sending code...' : 'Continue with Email'}
+          <Button fullWidth type="submit" disabled={status === 'logging_in'}>
+            {status === 'logging_in'
+              ? 'Sending code...'
+              : 'Continue with Email'}
           </Button>
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">

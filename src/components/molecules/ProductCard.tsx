@@ -33,13 +33,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               {product.name}
             </h3>
           </div>
-          <p className="text-lg font-bold text-black">${product.price.toFixed(2)}</p>
+          <p className="text-lg font-bold text-black">
+            ${product.price.toFixed(2)}
+          </p>
         </div>
         <p className="text-sm text-zinc-600 line-clamp-2 mb-4 h-10">
           {product.description}
         </p>
-        <Button 
-          fullWidth 
+        <Button
+          fullWidth
           onClick={() => addItem(product)}
           className="shadow-sm active:scale-95"
         >

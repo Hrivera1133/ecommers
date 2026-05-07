@@ -16,10 +16,12 @@ export const useCartStore = create<CartState>()(
   persist(
     (set, get) => ({
       items: [],
-      
+
       addItem: (product: Product) => {
         const currentItems = get().items;
-        const existingItem = currentItems.find((item) => item.id === product.id);
+        const existingItem = currentItems.find(
+          (item) => item.id === product.id
+        );
 
         if (existingItem) {
           set({
@@ -55,8 +57,9 @@ export const useCartStore = create<CartState>()(
 
       clearCart: () => set({ items: [] }),
 
-      totalItems: () => get().items.reduce((acc, item) => acc + item.quantity, 0),
-      
+      totalItems: () =>
+        get().items.reduce((acc, item) => acc + item.quantity, 0),
+
       totalPrice: () =>
         get().items.reduce((acc, item) => acc + item.price * item.quantity, 0),
     }),

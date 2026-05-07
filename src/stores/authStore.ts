@@ -16,7 +16,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     set({ status: 'logging_in' });
     // Simulate API verification
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+
     if (code === '123456') {
       const mockUser: User = {
         id: '1',

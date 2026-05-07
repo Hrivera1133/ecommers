@@ -4,7 +4,11 @@ export interface User {
   name: string;
 }
 
-export type AuthStatus = 'idle' | 'logging_in' | 'awaiting_2fa' | 'authenticated';
+export type AuthStatus =
+  | 'idle'
+  | 'logging_in'
+  | 'awaiting_2fa'
+  | 'authenticated';
 
 export interface AuthState {
   user: User | null;

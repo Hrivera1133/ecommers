@@ -5,7 +5,10 @@ interface BadgeProps {
   variant?: 'default' | 'success' | 'warning' | 'error';
 }
 
-export const Badge: React.FC<BadgeProps> = ({ children, variant = 'default' }) => {
+export const Badge: React.FC<BadgeProps> = ({
+  children,
+  variant = 'default',
+}) => {
   const styles = {
     default: 'bg-zinc-100 text-zinc-800',
     success: 'bg-green-100 text-green-800',
@@ -14,7 +17,9 @@ export const Badge: React.FC<BadgeProps> = ({ children, variant = 'default' }) =
   };
 
   return (
-    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${styles[variant]}`}>
+    <span
+      className={`px-2 py-0.5 rounded-full text-xs font-semibold ${styles[variant]}`}
+    >
       {children}
     </span>
   );
