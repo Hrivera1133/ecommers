@@ -15,13 +15,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
+  const isLoggingIn = status === 'logging_in';
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     try {
       await login(email);
-    } catch (err) {
+    } catch {
       setError('Something went wrong. Please try again.');
     }
   };
@@ -32,8 +33,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     try {
       await verify2FA(code);
       onClose();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('An unexpected error occurred');
+      }
     }
   };
 
@@ -46,7 +51,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
       {status === 'awaiting_2fa' ? (
         <form onSubmit={handleVerify} className="space-y-4">
           <p className="text-sm text-zinc-600 mb-4">
-            We've sent a 6-digit code to your email. Enter it below to continue.
+            We&apos;ve sent a 6-digit code to your email. Enter it below to
+            continue.
           </p>
           <div>
             <label className="block text-sm font-medium text-zinc-700 mb-1">
@@ -63,8 +69,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             />
           </div>
           {error && <p className="text-xs text-red-600 font-medium">{error}</p>}
-          <Button fullWidth type="submit" disabled={status === 'logging_in'}>
-            {status === 'logging_in' ? 'Verifying...' : 'Verify & Sign In'}
+          <Button fullWidth type="submit" disabled={isLoggingIn}>
+            {isLoggingIn ? 'Verifying...' : 'Verify & Sign In'}
           </Button>
         </form>
       ) : (
@@ -83,10 +89,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             />
           </div>
           {error && <p className="text-xs text-red-600 font-medium">{error}</p>}
-          <Button fullWidth type="submit" disabled={status === 'logging_in'}>
-            {status === 'logging_in'
-              ? 'Sending code...'
-              : 'Continue with Email'}
+          <Button fullWidth type="submit" disabled={isLoggingIn}>
+            {isLoggingIn ? 'Sending code...' : 'Continue with Email'}
           </Button>
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">

@@ -1,11 +1,11 @@
 import { create } from 'zustand';
-import { AuthState, AuthStatus, User } from '@/types/auth';
+import { AuthState, User } from '@/types/auth';
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   status: 'idle',
 
-  login: async (email: string) => {
+  login: async (_email: string) => {
     set({ status: 'logging_in' });
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
