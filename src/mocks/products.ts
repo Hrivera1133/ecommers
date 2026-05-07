@@ -27,5 +27,32 @@ export const MOCK_PRODUCTS: Product[] = [
     category: 'Lifestyle',
     image: '/images/backpack.png',
     rating: { rate: 4.7, count: 210 }
+  },
+  {
+    id: 4,
+    name: 'Smart Home Speaker',
+    description: 'High-fidelity audio with voice control. Seamlessly integrates with your smart home ecosystem.',
+    price: 199.00,
+    category: 'Electronics',
+    image: '/images/speaker.png',
+    rating: { rate: 4.6, count: 150 }
+  },
+  {
+    id: 5,
+    name: 'Premium Leather Wallet',
+    description: 'Minimalist bi-fold design handcrafted from genuine top-grain leather. RFID protection included.',
+    price: 45.00,
+    category: 'Accessories',
+    image: '/images/wallet.png',
+    rating: { rate: 4.9, count: 320 }
+  },
+  {
+    id: 6,
+    name: 'Designer Polarized Sunglasses',
+    description: 'Ultimate protection and style. Featuring high-performance polarized lenses and lightweight frames.',
+    price: 120.00,
+    category: 'Fashion',
+    image: '/images/sunglasses.png',
+    rating: { rate: 4.4, count: 95 }
   }
 ];
